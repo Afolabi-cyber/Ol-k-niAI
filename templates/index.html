@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4">
+  <div class="row g-4">
+    <!-- Sidebar: chat history (desktop only) -->
+    <aside class="col-lg-3 d-none d-lg-block">
+      <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="fw-semibold btn mb-0">Your Chats</h5>
+            <button id="newChatBtn" class="btn btn-sm">+ New</button>
+          </div>
+          <ul id="chatList" class="list-group list-group-flush small" style="max-height:65vh;overflow:auto;"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Chat area -->
+    <main class="col-lg-9">
+      <div class="card border-0 shadow-sm rounded-4">
+        <div class="card-body p-0">
+          <div id="chat-box" class="chat-box p-3">
+            <!-- Messages will be injected here -->
+          </div>
+          <div class="chat-input-bar p-2 border-top">
+            <div class="input-group">
+              <button class="btn btn-outline-secondary d-none d-sm-inline" title="Voice (future)" disabled>🎤</button>
+              <input id="message" class="form-control" placeholder="Ṣàlàyé fún mi… (e.g., 'Ṣàlàyé Ofin Keji Newton')" autocomplete="off">
+              <button id="sendBtn" class="btn btn">Send</button>
+            </div>
+            <div class="d-flex justify-content-between">
+              <small class="text-muted px-2">Tip: “Ṣàlàyé bí ìṣọ̀kan agbára (momentum) ṣe ń ṣiṣẹ́.”</small>
+              <button id="resetBtn" class="btn btn-link small">Reset chat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Mobile Sidebar (Offcanvas) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="chatHistoryOffcanvas" aria-labelledby="chatHistoryLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="chatHistoryLabel" style="color: #4B2E14;">Your Chats</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <button id="newChatBtnMobile" class="btn btn-sm mb-3">+ New</button>
+    <ul id="chatListMobile" class="list-group list-group-flush small" style="max-height:65vh;overflow:auto;"></ul>
+  </div>
+</div>
+
+<script>
+  window.__CONVERSATION_ID__ = {{ conversation_id|int }};
+</script>
+{% endblock %}

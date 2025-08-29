@@ -1,0 +1,164 @@
+:root{
+  --brown:#4B2E14;
+  --orange:#f08a17;
+  --bubble-radius:18px;
+}
+body{
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+}
+.navbar .navbar-toggler{ filter: invert(1); }
+
+.chat-box{
+  height: calc(100vh - 210px);
+  overflow-y:auto;
+  background: #fffdf8;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.chat-input-bar{
+  background:#fff;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.btn{
+  background-color: #4B2E14;
+  color: white;
+  text-decoration: none;
+}
+
+.msg{
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: var(--bubble-radius);
+  margin: 8px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  animation: popIn 0.25s ease;
+}
+.msg.user {
+  background: linear-gradient(135deg, #4B2E14, #552d0a);
+  color: #fff;
+  border-bottom-left-radius: 6px;
+}
+.msg:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+.msg.bot {
+  background: linear-gradient(135deg, #f08a17, #f7a844);
+  color: #1b1b1b;
+  border-bottom-right-radius: 6px;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avatar, .rounded-circle {
+  border: 2px solid #fff;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.msg-row {
+  display: flex;
+  align-items: flex-end;
+  margin: 6px 0;
+}
+.msg-row.user {
+  justify-content: flex-end;
+}
+.msg-row.bot {
+  justify-content: flex-start;
+}
+.msg-row.user .msg {
+  background: var(--green);
+  color: #fff;
+  border-bottom-left-radius: 6px;
+  margin-right: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 991.98px){
+  .msg{max-width: 88%;}
+}
+@media (max-width: 575.98px){
+  .chat-box{height: calc(100vh - 180px);}
+}
+
+/* Animation for messages */
+@keyframes popIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* -------- Sidebar Styling -------- */
+@media (max-width: 991.98px){
+  /* Hide sidebar in mobile and show as offcanvas */
+  aside.col-lg-3 {
+    display: none;
+  }
+
+  .offcanvas-history {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1050;
+    transition: left 0.3s ease-in-out;
+    padding: 1rem;
+  }
+  .offcanvas-history.active {
+    left: 0;
+  }
+  .offcanvas-history .close-btn {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    float: right;
+    cursor: pointer;
+  }
+}
+
+/* Typing indicator (3 bouncing dots) */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: #555;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}

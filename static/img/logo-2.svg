@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="Olùkó̩AI logo">
+  <defs>
+    <!-- Brown color for text -->
+    <style type="text/css">
+      .logo-text { fill: #4B2E14; font-family: 'Noto Serif', 'Noto Sans', 'Times New Roman', serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- White background -->
+  <rect x="0" y="0" width="1200" height="300" fill="#FFFFFF"/>
+  
+  <!-- Centered text -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="160" class="logo-text">
+    Olùkó̩AI
+  </text>
+</svg>
